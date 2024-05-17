@@ -7,10 +7,10 @@ export default function NavBar() {
             <img className="w-40 cursor-pointer" src={logo}></img>
 
             <div className="flex gap-8">
-            <a href="#" className="font-bold text-lg">Home</a>
-            <a href="#" className="font-bold text-lg">Oferta</a>
-            <a href="#" className="font-bold text-lg">Nossos produtos</a>
-            <a href="#" className="font-bold text-lg">Sobre nós</a>
+            <a href="#" className="font-bold text-xl hover:text-[#70ff67] ease-in-out">Home</a>
+            <a href="#" className="font-bold text-xl hover:text-[#70ff67] ease-in-out">Oferta</a>
+            <a href="#" className="font-bold text-xl hover:text-[#70ff67] ease-in-out">Nossos produtos</a>
+            <a href="#" className="font-bold text-xl hover:text-[#70ff67] ease-in-out">Sobre nós</a>
             <a href="#">
                 <ShoppingCart />
             </a>
