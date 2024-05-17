@@ -27,6 +27,7 @@ export function App() {
       .then((data) => setProducts(data.products))
       .catch(console.error);
   }, []);
+  console.log(cart.length);
   return (
     <div className="text-center">
       <NavBar />
