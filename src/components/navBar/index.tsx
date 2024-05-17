@@ -9,30 +9,37 @@ export default function NavBar() {
       <div className="flex gap-8">
         <a
           href="#"
-          className="font-bold text-xl transition relative no-underline hover:underline-after"
+          className="font-semibold text-xl transition relative no-underline hover:underline-after"
         >
           Home
         </a>
         <a
           href="#"
-          className="font-bold text-xl transition relative no-underline hover:underline-after"
+          className="font-semibold text-xl transition relative no-underline hover:underline-after"
         >
           Oferta
         </a>
         <a
           href="#"
-          className="font-bold text-xl transition relative no-underline hover:underline-after"
+          className="font-semibold text-xl transition relative no-underline hover:underline-after"
         >
           Nossos produtos
         </a>
         <a
           href="#"
-          className="font-bold text-xl transition relative no-underline hover:underline-after"
+          className="font-semibold text-xl transition relative no-underline hover:underline-after"
         >
           Sobre nós
         </a>
-        <a href="#">
-          <ShoppingCart />
+        <a
+          href="#"
+          className="flex items-center gap-2"
+        >
+          <ShoppingCart stroke="#70ff67"/>
+          <p className="font-semibold text-xl transition relative no-underline hover:underline-after">
+
+          Carrinho
+          </p>
         </a>
       </div>
     </div>

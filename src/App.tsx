@@ -56,6 +56,10 @@ export function App() {
           ))}
         </div>
       </div>
+
+      <div className="px-40 flex flex-col items-left mt-10 bg-[#70ff67] p-8">
+        <h2 className="text-5xl font-bold text-gray-50">Nossos produtos</h2>
+      </div>
     </div>
   );
 }
