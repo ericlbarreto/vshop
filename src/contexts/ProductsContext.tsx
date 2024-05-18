@@ -61,14 +61,23 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [cart, setCart] = useState<Product[]>([]);
+    const [cart, setCart] = useState<Product[]>(() => {
+        // Recuperando localStorage
+        const storedCart = localStorage.getItem("cart");
+        return storedCart ? JSON.parse(storedCart) : [];
+      });
+    
+      // Atualizando localStoage
+      useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }, [cart]);
 
-  // Função para adicionar um produto ao carrinho
+  // Adicionar produto no carrinho
   const addToCart = (product: Product) => {
     setCart([...cart, product]);
   };
 
-  // Função para remover um produto do carrinho
+  // Remover produto do carrinho
   const removeFromCart = (index: number) => {
     const newCart = [...cart];
     newCart.splice(index, 1);

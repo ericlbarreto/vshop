@@ -1,16 +1,4 @@
 import { logo } from "@/assets";
-import { ShoppingCart } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Button } from "../ui/button";
-import { TrashIcon } from "lucide-react";
-import "./navbar.css";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,10 +10,27 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { useCartContext } from "@/contexts/ProductsContext";
+import { ShoppingCart, TrashIcon } from "lucide-react";
+import { Button } from "../ui/button";
+import "./navbar.css";
+import { Separator } from "@radix-ui/react-separator";
+
 
 export default function NavBar() {
   const { cart, clearCart, removeFromCart } = useCartContext();
+
+  const calculateTotal = () => {
+    return cart.reduce((total, product) => total + product.price, 0);
+  };
 
   const handleConfirm = () => {
     window.open(
@@ -130,33 +135,42 @@ export default function NavBar() {
             </div>
 
             {cart.length > 0 && (
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <Button className="w-full bg-[#70ff67] shadow-md text-gray-950 hover:text-[#70ff67]">
-                    Confirmar Compra
-                  </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>
-                      Você deseja confirmar sua compra?
-                    </AlertDialogTitle>
-                    <AlertDialogDescription>
-                      Essa ação irá confirmar sua compra, separando os produtos
-                      no nosso estoque e enviando para o seu endereço.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Cancelar</AlertDialogCancel>
-                    <AlertDialogAction
-                      className="bg-[#70ff67] text-gray-950 hover:text-[#70ff67]"
-                      onClick={handleConfirm}
-                    >
-                      Confirmar
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
+              <div>
+                <div className="w-full mb-4">
+                  <Separator className="border-t border-gray-300 my-2" />
+                  <div className="text-start">
+                    <p className="text-lg font-bold">Total: R$ {calculateTotal().toFixed(2)}</p>
+                  </div>
+                </div>
+                
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button className="w-full bg-[#70ff67] shadow-md text-gray-950 hover:text-[#70ff67]">
+                      Confirmar Compra
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>
+                        Você deseja confirmar sua compra?
+                      </AlertDialogTitle>
+                      <AlertDialogDescription>
+                        Essa ação irá confirmar sua compra, separando os produtos
+                        no nosso estoque e enviando para o seu endereço.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                      <AlertDialogAction
+                        className="bg-[#70ff67] text-gray-950 hover:text-[#70ff67]"
+                        onClick={handleConfirm}
+                      >
+                        Confirmar
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </div>
             )}
           </SheetContent>
         </Sheet>
