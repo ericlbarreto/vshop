@@ -1,47 +1,19 @@
 import NavBar from "./components/navBar";
 import { banner } from "./assets";
-import { useState, useEffect } from "react";
 import ProductCard from "./components/productCard";
 import { Button } from "./components/ui/button";
-
-interface ProductProps {
-  title: string;
-  price: number;
-  thumbnail: string;
-  category: string;
-  stock: number;
-}
+import { useProductContext, useCartContext } from "./contexts/ProductsContext";
 
 export function App() {
-  const [cart, setCart] = useState<ProductProps[]>([]);
-  const [products, setProducts] = useState<ProductProps[]>([]);
-
-  const handleAddProduct = (index: number) => {
-    const newProduct = products[index];
-    setCart((prevProducts) => [...prevProducts, newProduct]);
-  };
-
-  const handleRemoveProduct = (index: number) => {
-    setCart((prevProducts) => prevProducts.filter((_, i) => i !== index));
-  };
-
-  const handleRemoveAllProducts = () => {
-    setCart([]);
-  };
-
-  useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=10")
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products))
-      .catch(console.error);
-  }, []);
+  const { products } = useProductContext();
+  const { addToCart } = useCartContext();
 
   return (
     <div className="text-center">
-      <NavBar cart={cart} onRemoveProduct={handleRemoveProduct} onRemoveAllProducts={handleRemoveAllProducts}/>
+      <NavBar />
 
       <div className="flex justify-center mx-auto max-w-[75%]">
-        <img src={banner} className="rounded-3xl w-auto"></img>
+        <img src={banner} className="rounded-3xl w-auto" alt="Banner"></img>
       </div>
 
       <div className="flex flex-col items-start px-40 mt-16">
@@ -62,7 +34,7 @@ export function App() {
                 stock={product.stock}
                 price={product.price}
               />
-              <Button className="absolute bottom-4 right-4 text-lg bg-[#70ff67] text-gray-950 hover:text-[#70ff67]" onClick={() => handleAddProduct(index)}>
+              <Button className="absolute bottom-4 right-4 text-lg bg-[#70ff67] text-gray-950 hover:text-[#70ff67]" onClick={() => addToCart(product)}>
                 +
               </Button>
             </div>

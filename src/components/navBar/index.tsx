@@ -22,37 +22,22 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useCartContext } from "@/contexts/ProductsContext";
 
-interface NavBarProps {
-  cart: ProductProps[];
-  onRemoveProduct: (index: number) => void;
-  onRemoveAllProducts: () => void;
-}
+export default function NavBar() {
+  const { cart, clearCart, removeFromCart } = useCartContext();
 
-interface ProductProps {
-  title: string;
-  price: number;
-  thumbnail: string;
-  category: string;
-  stock: number;
-}
-
-export default function NavBar({
-  cart,
-  onRemoveProduct,
-  onRemoveAllProducts,
-}: NavBarProps) {
   const handleConfirm = () => {
     window.open(
       `https://api.whatsapp.com/send?phone=+5589988161225&text=Ol%C3%A1%21+Vim+da+v%28shop%29+e+acabei+de+adquirir+${cart.length}+produtos+na+loja!`,
       "_blank"
     );
-    onRemoveAllProducts();
+    clearCart();
   };
 
   return (
     <div className="px-40 flex justify-between items-center p-6">
-      <img className="w-40 cursor-pointer" src={logo}></img>
+      <img className="w-40 cursor-pointer" src={logo} alt="Logo"></img>
 
       <div className="flex gap-8">
         <a
@@ -132,7 +117,7 @@ export default function NavBar({
                         </p>
                         <Button
                           className="w-11 h-8"
-                          onClick={() => onRemoveProduct(index)}
+                          onClick={() => removeFromCart(index)}
                           variant={"destructive"}
                         >
                           <TrashIcon className="w-6 h-6" stroke="#ffffff" />
