@@ -7,6 +7,9 @@ interface Product {
   thumbnail: string;
   category: string;
   stock: number;
+  description: string;
+  brand: string;
+  
 }
 
 interface ProductContextType {
