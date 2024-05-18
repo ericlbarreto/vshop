@@ -25,7 +25,7 @@ export default function ProductCard({ title, price, thumbnail, category, stock }
                 <p className="text-gray-400">({stock})</p>
             </div>
             
-            <h2 className="font-bold text-2xl mt-2">R${price}</h2>
+            <h2 className="font-bold text-2xl mt-2">R$ {price.toFixed(2)}</h2>
         </div>
     )
 }

@@ -21,26 +21,37 @@ export function App() {
     setCart((prevProducts) => [...prevProducts, newProduct]);
   };
 
+  const handleRemoveProduct = (index: number) => {
+    setCart((prevProducts) => prevProducts.filter((_, i) => i !== index));
+  };
+
+  const handleRemoveAllProducts = () => {
+    setCart([]);
+  };
+
   useEffect(() => {
     fetch("https://dummyjson.com/products?limit=10")
       .then((res) => res.json())
       .then((data) => setProducts(data.products))
       .catch(console.error);
   }, []);
+
   return (
     <div className="text-center">
-      <NavBar cartLength={cart.length}/>
+      <NavBar cart={cart} onRemoveProduct={handleRemoveProduct} onRemoveAllProducts={handleRemoveAllProducts}/>
 
       <div className="flex justify-center mx-auto max-w-[75%]">
         <img src={banner} className="rounded-3xl w-auto"></img>
       </div>
 
-      <div className="flex justify-start px-40 mt-16">
-        <h2 className="text-5xl font-bold">Nossos produtos</h2>
+      <div className="flex flex-col items-start px-40 mt-16">
+        <h2 className="text-5xl font-bold">
+          Nossos produtos
+        </h2>
+        <span className="mt-2 bottom-0 left-0 block w-56 rounded-full h-1 bg-[#70ff67]"></span>
       </div>
 
       <div className="px-40 flex flex-col items-center">
-
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
           {products.map((product, index) => (
             <div key={index} className="relative">
@@ -58,10 +69,6 @@ export function App() {
           ))}
         </div>
       </div>
-
-      {/* <div className="px-40 flex flex-col items-left mt-10 bg-[#70ff67] p-8">
-        <h2 className="text-5xl font-bold text-gray-50">Nossos produtos</h2>
-      </div> */}
     </div>
   );
 }
