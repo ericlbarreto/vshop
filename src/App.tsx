@@ -27,17 +27,19 @@ export function App() {
       .then((data) => setProducts(data.products))
       .catch(console.error);
   }, []);
-  console.log(cart.length);
   return (
     <div className="text-center">
-      <NavBar />
+      <NavBar cartLength={cart.length}/>
 
       <div className="flex justify-center mx-auto max-w-[75%]">
         <img src={banner} className="rounded-3xl w-auto"></img>
       </div>
 
-      <div className="px-40 flex flex-col items-center mt-10">
+      <div className="flex justify-start px-40 mt-16">
         <h2 className="text-5xl font-bold">Nossos produtos</h2>
+      </div>
+
+      <div className="px-40 flex flex-col items-center">
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
           {products.map((product, index) => (
@@ -57,9 +59,9 @@ export function App() {
         </div>
       </div>
 
-      <div className="px-40 flex flex-col items-left mt-10 bg-[#70ff67] p-8">
+      {/* <div className="px-40 flex flex-col items-left mt-10 bg-[#70ff67] p-8">
         <h2 className="text-5xl font-bold text-gray-50">Nossos produtos</h2>
-      </div>
+      </div> */}
     </div>
   );
 }

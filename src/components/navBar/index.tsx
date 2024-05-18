@@ -1,7 +1,11 @@
 import { logo } from "@/assets";
 import { ShoppingCart } from "lucide-react";
 
-export default function NavBar() {
+interface NavBar {
+  cartLength: number;
+}
+
+export default function NavBar({ cartLength }: NavBar) {
   return (
     <div className="px-40 flex justify-between items-center p-6">
       <img className="w-40 cursor-pointer" src={logo}></img>
@@ -39,6 +43,9 @@ export default function NavBar() {
           <p className="font-semibold text-xl transition relative no-underline hover:underline-after">
 
           Carrinho
+          </p>
+          <p className="text-[#70ff67] text-xs font-semibold">
+            ({cartLength})
           </p>
         </a>
       </div>
