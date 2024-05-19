@@ -25,13 +25,13 @@ export default function ProductCard({
 }: ProductProps) {
   return (
     <div
-      className="flex flex-col items-start w-96 border-solid border-2
+      className="flex flex-col items-start w-64 lg:w-72 2xl:w-[18vw] border-solid border-2
          border-gray-200 p-6 rounded-xl"
     >
-      <img src={thumbnail} className="h-60 object-cover rounded-xl"></img>
+      <img src={thumbnail} className="w-[100%] h-60 object-cover rounded-xl"></img>
       <HoverCard>
         <HoverCardTrigger asChild>
-          <a className="font-bold mt-4 hover:underline">{title}</a>
+          <a className="font-bold mt-4 hover:underline cursor-pointer">{title}</a>
         </HoverCardTrigger>
         <HoverCardContent className="w-80">
           <div className="flex justify-between space-x-4">
