@@ -1,16 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from './App.tsx';
-import { CartProvider } from "./contexts/ProductsContext.tsx";
-import { ProductProvider } from "./contexts/ProductsContext.tsx";
-import './global.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { App } from "./App";
+import "./global.css";
+import { CartProvider, ProductProvider } from "./contexts/ProductsContext";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <CartProvider>
     <ProductProvider>
-      <CartProvider>
+      <React.StrictMode>
         <App />
-      </CartProvider>
+      </React.StrictMode>
     </ProductProvider>
-  </React.StrictMode>,
-)
+  </CartProvider>
+);
