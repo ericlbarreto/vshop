@@ -23,7 +23,7 @@ A VShop é uma aplicação web para e-commerce especializada em produtos eletrô
 
 # ✅ Acesse o v(shop) aqui e aproveite a experiência
 
-www.vshop.com.br
+https://vshop-flax.vercel.app/
 
 # ⚙️ Abra e rode o projeto
 Clone o repositório
