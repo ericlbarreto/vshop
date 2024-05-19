@@ -9,7 +9,7 @@ export function App() {
   const { addToCart } = useCartContext();
 
   return (
-    <div className="text-center">
+    <div className="text-center pb-32">
       <NavBar />
 
       <div className="flex justify-center mx-auto max-w-[75%]">
@@ -33,6 +33,7 @@ export function App() {
                 category={product.category}
                 stock={product.stock}
                 price={product.price}
+                description={product.description}
               />
               <Button className="absolute bottom-4 right-4 text-lg bg-[#70ff67] text-gray-950 hover:text-[#70ff67]" onClick={() => addToCart(product)}>
                 +
