@@ -26,6 +26,7 @@ A VShop é uma aplicação web para e-commerce especializada em produtos eletrô
 - Criação de novas páginas
 - Modo claro e escuro
 - Novas sections
+- Integrar NavBar
 
 # ✅ Acesse o v(shop) aqui e aproveite a experiência
 
