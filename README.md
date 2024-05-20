@@ -20,11 +20,11 @@ A VShop é uma aplicação web para e-commerce especializada em produtos eletrô
 - Menu de navegação do carrinho
 - Excluir produtos do carrinho 
 - Confirmar compra (checkout para o whatsapp👀)
+- Modo claro e escuro
 
 # 🚀 Features futuras
 - Responsividade
 - Criação de novas páginas
-- Modo claro e escuro
 - Novas sections
 - Integrar NavBar
 
