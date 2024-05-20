@@ -21,6 +21,13 @@ A VShop é uma aplicação web para e-commerce especializada em produtos eletrô
 - Excluir produtos do carrinho 
 - Confirmar compra (checkout para o whatsapp👀)
 
+# 🚀 Features futuras
+- Responsividade
+- Criação de novas páginas
+- Modo claro e escuro
+- Novas sections
+- Integrar NavBar
+
 # ✅ Acesse o v(shop) aqui e aproveite a experiência
 
 https://vshop-flax.vercel.app/
