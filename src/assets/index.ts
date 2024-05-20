@@ -1,5 +1,6 @@
-import logo from './logo.png'
+import logoLight from './logoLight.png'
+import logoDark from './logoDark.png'
 import banner from './banner.jpg'
 import star from './star.svg'
 
-export { logo, banner, star }
+export { logoLight, logoDark, banner, star }

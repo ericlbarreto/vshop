@@ -1,4 +1,4 @@
-import { logo } from "@/assets";
+import { logoDark, logoLight } from "@/assets";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -23,6 +23,7 @@ import { ShoppingCart, TrashIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import "./navbar.css";
 import { Separator } from "@radix-ui/react-separator";
+import { ModeToggle } from "../modeToggle";
 
 
 export default function NavBar() {
@@ -42,7 +43,16 @@ export default function NavBar() {
 
   return (
     <div className="px-40 flex justify-between items-center p-6">
-      <img className="w-40 cursor-pointer" src={logo} alt="Logo"></img>
+      <img
+          className="w-40 cursor-pointer dark:hidden"
+          src={logoLight}
+          alt="Logo Light"
+        />
+        <img
+          className="w-40 cursor-pointer hidden dark:block"
+          src={logoDark}
+          alt="Logo Dark"
+        />
 
       <div className="flex gap-8">
         <a
@@ -174,7 +184,11 @@ export default function NavBar() {
             )}
           </SheetContent>
         </Sheet>
+
+        <ModeToggle />
       </div>
+
+      
     </div>
   );
 }

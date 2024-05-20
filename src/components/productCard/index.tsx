@@ -25,7 +25,7 @@ export default function ProductCard({
   return (
     <div
       className="flex flex-col items-start w-64 lg:w-72 2xl:w-[18vw] border-solid border-2
-         border-gray-200 p-6 rounded-xl"
+      border-gray-200 dark:border-gray-700 p-6 rounded-xl"
     >
       <img src={thumbnail} className="w-[100%] h-60 object-cover rounded-xl"></img>
       <HoverCard>
