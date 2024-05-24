@@ -48,7 +48,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=10")
+    fetch("https://dummyjson.com/products/category/smartphones")
       .then((res) => res.json())
       .then((data) => setProducts(data.products))
       .catch(console.error);
